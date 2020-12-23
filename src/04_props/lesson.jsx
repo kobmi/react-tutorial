@@ -1,16 +1,27 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-const Lesson = () => {
-  return <CounterButton />;
-};
-
-const Counter = ({ counter }) => {
+const Counter = ({ counter, func, number, string }) => {
+  console.log(counter, func, string, number);
   return <h1>{`Counter component. Counter value: ${counter}`}</h1>;
 };
 
-class CounterButton extends Component {
+Counter.propTypes = {
+  counter: PropTypes.number.isRequired,
+  func: PropTypes.func,
+  number: PropTypes.number,
+  string: PropTypes.string
+};
+
+Counter.defaultProps = {
+  func: () => {},
+  number: 0,
+  string: ""
+};
+
+class Lesson extends Component {
   state = {
-    counter: 0,
+    counter: 0
   };
 
   addCounter = () => {
@@ -25,7 +36,7 @@ class CounterButton extends Component {
     return (
       <div className="container">
         <h3>{counter}</h3>
-        <Counter counter={counter} func={() => {}} string="" number={0} />
+        <Counter counter={counter} />
         <button className="btn btn-danger" onClick={this.subtractCounter}>
           Counter -
         </button>
