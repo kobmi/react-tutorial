@@ -61,6 +61,11 @@ class App extends Component {
         {activeTab === 1 && <Tab1 />}
         {activeTab === 2 && <Tab2 />}
         {activeTab === 3 && <Tab3 />}
+        <div>
+          {`Avtive tab is: ${
+            activeTab === 1 ? "first" : activeTab === 2 ? "second" : "third"
+          }`}
+        </div>
       </div>
     );
   }

@@ -18,5 +18,8 @@ import ReactDOM from "react-dom";
 // import App from "./06_events/lesson";
 // ReactDOM.render(<App />, document.getElementById("root"));
 
-import App from "./07_conditional_rendering/lesson";
+// import App from "./07_conditional_rendering/lesson";
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+import App from "./08_lists_keys/lesson";
 ReactDOM.render(<App />, document.getElementById("root"));
