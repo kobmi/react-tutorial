@@ -35,19 +35,33 @@ class Form extends Component {
       {
         name: "",
         text: "",
-        position: ""
+        position: "",
+        id: null
       }
     ]
   };
 
-  handleInputChange = ({ target: { value } }) =>
-    this.setState({ inputText: value });
+  // handleInputChange = ({ target: { value } }) =>
+  //   this.setState({ inputText: value });
 
-  handleTextAreaChange = ({ target: { value } }) =>
-    this.setState({ textareaText: value });
+  // handleTextAreaChange = ({ target: { value } }) =>
+  //   this.setState({ textareaText: value });
 
-  handleSelectChange = ({ target: { value } }) =>
-    this.setState({ selectText: value });
+  // handleSelectChange = ({ target: { value } }) =>
+  //   this.setState({ selectText: value });
+
+  // REFS
+  inputRef = React.createRef();
+  textareaRef = React.createRef();
+  selectRef = React.createRef();
+
+  handleChange = () => {
+    this.setState({
+      inputText: this.inputRef.current.value,
+      textareaText: this.textareaRef.current.value,
+      selectText: this.selectRef.current.value
+    });
+  };
 
   handleShowData = (e) => {
     e.preventDefault();
@@ -59,7 +73,12 @@ class Form extends Component {
       selectText: "",
       data: [
         ...data,
-        { name: inputText, text: textareaText, position: selectText }
+        {
+          name: inputText,
+          text: textareaText,
+          position: selectText,
+          id: Math.floor(Math.random() * 1000)
+        }
       ]
     }));
   };
@@ -71,20 +90,22 @@ class Form extends Component {
         <div className="mb-3">
           <label className="form-label">Name:</label>
           <input
+            ref={this.inputRef}
             className="form-control"
             type="text"
             placeholder="John"
             value={inputText}
-            onChange={this.handleInputChange}
+            onChange={this.handleChange}
           />
           <div className="mb-3">
             <label htmlFor="text">Text:</label>
             <textarea
+              ref={this.textareaRef}
               className="form-control"
               name="text"
               id="text"
               value={textareaText}
-              onChange={this.handleTextAreaChange}
+              onChange={this.handleChange}
               placeholder="Some text"
             ></textarea>
           </div>
@@ -95,8 +116,9 @@ class Form extends Component {
           </div>
           <div className="mb-3">
             <select
+              ref={this.selectRef}
               className="form-select"
-              onChange={this.handleSelectChange}
+              onChange={this.handleChange}
               value={selectText}
             >
               {SELECT_OPTIONS.map(({ value, id, label }) => (
@@ -109,9 +131,9 @@ class Form extends Component {
           <div>
             <h4>Output:</h4>
 
-            {data.map(({ name, text, position }) => {
+            {data.map(({ name, text, position, id }) => {
               return (
-                <div key={name}>
+                <div key={id}>
                   <h3>{name}</h3>
                   <h3>{text}</h3>
                   <h3>{position}</h3>
