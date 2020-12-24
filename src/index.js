@@ -24,5 +24,8 @@ import ReactDOM from "react-dom";
 // import App from "./08_lists_keys/lesson";
 // ReactDOM.render(<App />, document.getElementById("root"));
 
-import App from "./09_fragment_and_css/table";
+// import App from "./09_fragment_and_css/table";
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+import App from "./10_form/lesson";
 ReactDOM.render(<App />, document.getElementById("root"));
