@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./index.css";
 
 // import Lesson from "./03_state/lesson";
 // ReactDOM.render(<Lesson />, document.getElementById("root"));
@@ -27,5 +28,11 @@ import ReactDOM from "react-dom";
 // import App from "./09_fragment_and_css/table";
 // ReactDOM.render(<App />, document.getElementById("root"));
 
-import App from "./10_form/lesson";
-ReactDOM.render(<App />, document.getElementById("root"));
+// import App from "./10_form/lesson";
+// ReactDOM.render(<App />, document.getElementById("root"));
+
+// import Lesson from "./12_hoc/lesson";
+// ReactDOM.render(<Lesson />, document.getElementById("root"));
+
+import News from "./16_api_1/containers/news/news";
+ReactDOM.render(<News />, document.getElementById("root"));
