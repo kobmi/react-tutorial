@@ -1,0 +1,11 @@
+.posts {
+}
+
+.posts li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.posts li a:hover {
+    text-decoration: underline;
+}
